@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<script>
+   function submit(){
+            if($("#inp1").val() && $("#inp2").val() && $("#inp3").val() && $("#inp4").val()){
+                var a=$("#inp1").val();
+                var b=$("#inp2").val();
+                var c=$("#inp3").val();
+                var d=$("#inp4").val();
+                var x='<div class="row" style="margin-top:20px; margin-bottom:20px; margin-left: 10px; margin-right: 10px;">'+
+                '<span style="height: 1cm; background-color: #e07407; width: 1%; padding-top: 10px;"></span>'+
+                '<span style="height: 1cm; background-color: teal; width: 42%; padding-top: 10px;"><b>'+ a +
+                '</b></span> <span style="height: 1cm; background-color: green; width: 16%;padding-top: 10px;"><b>'+ b +
+                '</b></span> <span style="height: 1cm; background-color: brown; width: 14%;padding-top: 10px;"> <b >'+ c +
+                '</b></span> <span style="height: 1cm; background-color: burlywood; width: 11%;padding-top: 10px;"> <b >'+ d + 
+                '</b></span> <button  style="background-color: black; color:white;" class="xyz"> <b>Cancel</b>'+
+                '</button> <button  style="background-color: black;color:white;" class="abc"> <b>Done</b></button> </div>'
+               
+                $("#list").append(x);
+            }
+
+            else{
+                alert("fillup all the fields");
+            }
+        }
+
+        $(document).on('click','.xyz',function() {
+                $(this).parent().remove();
+        });
+        $(document).on('click','.abc',function() {
+                
+                $(this).replaceWith('<span style="height: 1cm; background-color: yellow; width: 10%;padding-top: 10px;"><i><strong>completed</strong></i></span>');
+                
+
+        });
+
+
+
+        
+            
+</script>
+<style>
+    .container{
+        background-color: #32a852;
+        text-align: center;
+        height: 100px;
+        width:900px;
+        font-family: "Comic Sans MS", cursive, sans-serif;
+    }
+    .inside{
+        display: inline-block;
+        margin-right: 30px;
+    }
+    #inp1{
+        width:5cm;
+    }
+    
+    #list{
+        overflow-y: auto;
+    }
+    .toBeDeleted{
+        border: 2px solid black;
+    }
+    .active{
+        border: 2px solid black;
+    }
+</style>
+
+<body>
+
+    <div class="container">
+    <!-- <form action=""> -->
+
+    <div class="inside">
+        <label for="inp1" class="btn btn-danger">WORK</label>
+        <input type="text" id="inp1" onfocus="this.value=''" required/>
+    </div>
+    <div class="inside">
+        <label for="inp2" class="btn btn-danger">ON</label>
+        <input type="date" id="inp2" onfocus="this.value=''" required/>
+    </div>
+    <div class="inside">
+        <label for="inp3" class="btn btn-danger">AT</label>
+        <input type="time" id="inp3" onfocus="this.value=''" required/>
+    </div>
+    <div class="inside">
+        <b class="btn btn-danger">PRIORITY</b>
+        <label><input type="range" min="1" max="10" value="4" style="margin-top: 30px;" id="inp4" required/></label>
+    </div>
+    <div class="inside">
+        <a class="btn btn-info" id="submit" style="margin-top: 15px;" onclick="submit()">SUBMIT</a>
+    </div>
+<!-- </form> -->
+        
+    </div>
+
+    <div class="container" id="list" style="height: 600px; width: 900px; background-color: #2e033d;background-image: url('background_top2.jpg');background-repeat: no-repeat; background-size: cover;">
+        
+            <!-- <div class="row" style="margin-top:20px; margin-bottom:20px; margin-left: 10px; margin-right: 10px;">
+                <span style="height: 1cm; background-color: #e07407; width: 1%; padding-top: 10px;"></span>
+                <span style="height: 1cm; background-color: rgb(115, 128, 128); width: 42%; padding-top: 10px;"><b>SORTING PHOTOS IN ALBUM</b></span>
+                <span style="height: 1cm; background-color: green; width: 16%;padding-top: 10px;"><b>10-04-2020</b></span>
+                <span style="height: 1cm; background-color: brown; width: 13%;padding-top: 10px;"> <b >7:30PM </b></span>
+                <span style="height: 1cm; background-color: burlywood; width: 11%;padding-top: 10px;"> <b >7</b></span>
+                <button class= "btn btn-info btn-lg" class="xyz" style="background-color: black;">
+                    <span class="glyphicon glyphicon-trash"></span> 
+                </button>
+                <button class="btn btn-info btn-lg" style="background-color: black;" class="abc">
+                    <span class="glyphicon glyphicon-ok"></span> Done
+                </button>
+            </div> -->
+
+            <!-- <div class="row">
+                <span style="height: 1cm; background-color: rgb(115, 128, 128); width: 42%; padding-top: 10px;"><b>SORTING PHOTOS IN ALBUM</b></span>
+                <span style="height: 1cm; background-color: green; width: 16%;padding-top: 10px;"><b>10-04-2020</b></span>
+                <span style="height: 1cm; background-color: burlywood; width: 11%;padding-top: 10px;"> <b >7</b></span>
+                <button class= "btn btn-info btn-lg" class="xyz" style="background-color: black;">
+                    <span class="glyphicon glyphicon-trash"></span> 
+                </button>
+                <button class="btn btn-info btn-lg" style="background-color: black;" class="abc">
+                    <span class="glyphicon glyphicon-ok"></span> Done
+                </button>
+            </div> -->
+            
+    </div>
+    
+</body>
+</html>
